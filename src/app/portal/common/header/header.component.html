@@ -1,1 +1,138 @@
-<p>header works!</p>
+<nav
+  class="bg-[#fdfbee] border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 relative"
+>
+  <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <img
+      src="../../../../assets/img/1.png"
+      class="h-52 w-1/4 absolute top-4 right-52 mx-2"
+      alt="Zocdoc Logo"
+    />
+  </a>
+  <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+    <a href="#" class="flex">
+      <img
+        src="../../../../assets/img/zee_rgb.png"
+        class="h-8"
+        alt="Zocdoc Logo"
+      />
+
+      <span class="text-xl">Zocdoc</span>
+    </a>
+
+    <div class="flex items-center space-x-6">
+      <div
+        class="relative"
+        [ngClass]="{ open: isBrowseOpen }"
+        (click)="toggleBrowse()"
+      >
+        <button
+          class="flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          Browse
+
+          <svg
+            class="w-5 h-5 ml-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        <div
+          class="absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
+          *ngIf="isBrowseOpen"
+        >
+          <div class="py-2">
+            <a
+              href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >Dashboard</a
+            >
+
+            <a
+              href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >Settings</a
+            >
+
+            <a
+              href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >Earnings</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="#"
+        class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >Help</a
+      >
+
+      <a
+        href="#"
+        class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >List your practice on Zocdoc</a
+      >
+
+      <div
+        class="relative"
+        [ngClass]="{ open: isLoginOpen }"
+        (click)="toggleLogin()"
+      >
+        <button
+          class="flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          Log in
+
+          <svg
+            class="w-5 h-5 ml-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        <div
+          class="absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
+          *ngIf="isLoginOpen"
+        >
+          <div class="py-2">
+            <a
+              href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >Sign in</a
+            >
+
+            <a
+              href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >Create an account</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="px-4 py-2 bg-yellow-200 hover:bg-yellow-500 text-gray-900 rounded-md"
+      >
+        Sign up
+      </button>
+    </div>
+  </div>
+
+  <app-banner></app-banner>
+</nav>

@@ -282,7 +282,7 @@ export class DoctorsComponent {
         'Miami ENT Doctors',
         'Miami Urgent Care',
         'Miami Medicare'
-      ]
+      ], showSubCities: false
     },
     // Atlanta
     {
@@ -317,7 +317,8 @@ export class DoctorsComponent {
         'Chicago ENT Doctors',
         'Chicago Urgent Care',
         'Chicago Medicare'
-      ]
+      ], showSubCities: false
+
     },
     // Denver
     {
@@ -334,7 +335,7 @@ export class DoctorsComponent {
         'Denver ENT Doctors',
         'Denver Urgent Care',
         'Denver Medicare'
-      ]
+      ], showSubCities: false
     },
     // Austin
     {
@@ -351,7 +352,7 @@ export class DoctorsComponent {
         'Austin ENT Doctors',
         'Austin Urgent Care',
         'Austin Medicare'
-      ]
+      ], showSubCities: false
     },
     // Los Angeles
     {
@@ -368,7 +369,7 @@ export class DoctorsComponent {
         'Los Angeles ENT Doctors',
         'Los Angeles Urgent Care',
         'Los Angeles Medicare'
-      ]
+      ], showSubCities: false
     },
     // Long Island
     {
@@ -385,7 +386,7 @@ export class DoctorsComponent {
         'Long Island ENT Doctors',
         'Long Island Urgent Care',
         'Long Island Medicare'
-      ]
+      ], showSubCities: false
     },
     // San Diego
     {
@@ -402,18 +403,52 @@ export class DoctorsComponent {
         'San Diego ENT Doctors',
         'San Diego Urgent Care',
         'San Diego Medicare'
-      ]
+      ], showSubCities: false
     }
 
 
   ];
 
-  commonVisitReasons = ['Medical', 'Dental', 'Mental Health', 'Vision'];
+  // commonVisitReasons = ['Medical', 'Dental', 'Mental Health', 'Vision'];
+  commonVisitReasons = [{
+    name: 'Medical',
+    subCommonVisitReasons: [
+      'Medical Doctors',
+      'Medical Dentists',
+      'Medical Pediatric Dentists',
+      'Medical Pediatricians',
+      'Medical Dermatologists',
+      'Medical OB-GYNs',
+      'Medical Psychiatrists',
+      'Medical Therapists',
+      'Medical Eye Doctors',
+      'Medical ENT Doctors',
+      'Medical Urgent Care',
+      'Medical Medicare'
+    ], showSubCities: false
+  },
+  {
+    name: 'Dental', subCommonVisitReasons: [
+      'Dental cleaning',
+      'Teeth bonding',
+      'Dental implants'
+    ]
+  },
+  {
+    name: 'vison', subCommonVisitReasons: [
+      'Annual eye exam',
+      'Eye exam'
+    ], showSubCities: false
+  }
+  ]
 
   toggleSubCity(city: any) {
     city.showSubCities = !city.showSubCities;
   }
+
 }
+
+
 
 
 

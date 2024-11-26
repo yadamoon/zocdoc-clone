@@ -1,79 +1,240 @@
-<div class="mt-10 w-full">
-  <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">
-    Cities and Sub-Cities
-  </h2>
-  <div class="grid grid-cols-4 gap-6">
-    <div *ngFor="let city of cities" class="flex flex-col items-center">
-      <button
-        class="px-6 py-3 text-left flex justify-between items-center transition-all"
-        (click)="toggleSubCity(city)"
-      >
-        <span class="text-gray-700 text-sm">{{ city.name }}</span>
-        <svg
-          class="w-5 h-5 transition-transform duration-300"
-          [class.rotate-180]="city.showSubCities"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+<div class="bg-[#ffefbb]">
+  <div class="mt-10 w-full max-w-6xl mx-auto px-4">
+    <h2 class="text-xl font-bold p-10 text-gray-600">
+      Find doctors and dentists by city
+    </h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    >
+      <div class="flex flex-col col-span-1">
+        <div
+          *ngFor="let city of cities.slice(0, 5)"
+          class="flex flex-col p-1 mb-1 border-b border-b-gray-400 rounded-sm"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
-      </button>
-      <div
-        class="mt-2 w-full justify-between items-center"
-        *ngIf="city.showSubCities"
-      >
-        <a
-          *ngFor="let subCity of city.subCities"
-          href="#"
-          class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+          <button
+            class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors"
+            (click)="toggleSubCity(city)"
+          >
+            <span class="text-gray-600 text-sm">{{ city.name }}</span>
+            <svg
+              class="w-5 h-5 transition-transform duration-300"
+              [class.rotate-180]="city.showSubCities"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div
+            class="mt-2 w-full p-4 transition-all duration-300"
+            *ngIf="city.showSubCities"
+          >
+            <a
+              *ngFor="let subCity of city.subCities"
+              href="#"
+              class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+            >
+              {{ subCity }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col col-span-1">
+        <div
+          *ngFor="let city of cities.slice(5, 10)"
+          class="flex flex-col p-1 mb-1 border-b border-b-gray-400 rounded-sm"
         >
-          {{ subCity }}
-        </a>
+          <button
+            class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors duration-300"
+            (click)="toggleSubCity(city)"
+          >
+            <span class="text-gray-600 text-sm">{{ city.name }}</span>
+            <svg
+              class="w-5 h-5 transition-transform duration-300"
+              [class.rotate-180]="city.showSubCities"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div
+            class="mt-2 w-full p-4 transition-all duration-300"
+            *ngIf="city.showSubCities"
+          >
+            <a
+              *ngFor="let subCity of city.subCities"
+              href="#"
+              class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+            >
+              {{ subCity }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col col-span-1">
+        <div
+          *ngFor="let city of cities.slice(10, 15)"
+          class="flex flex-col p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+        >
+          <button
+            class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors duration-300"
+            (click)="toggleSubCity(city)"
+          >
+            <span class="text-gray-600 text-sm">{{ city.name }}</span>
+            <svg
+              class="w-5 h-5 transition-transform duration-300"
+              [class.rotate-180]="city.showSubCities"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div
+            class="mt-2 w-full p-4 transition-all duration-300"
+            *ngIf="city.showSubCities"
+          >
+            <a
+              *ngFor="let subCity of city.subCities"
+              href="#"
+              class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+            >
+              {{ subCity }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col col-span-1">
+        <div
+          *ngFor="let city of cities.slice(15, 20)"
+          class="flex flex-col p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+        >
+          <button
+            class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors duration-300"
+            (click)="toggleSubCity(city)"
+          >
+            <span class="text-gray-600 text-sm">{{ city.name }}</span>
+            <svg
+              class="w-5 h-5 transition-transform duration-300"
+              [class.rotate-180]="city.showSubCities"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div
+            class="mt-2 w-full p-4 transition-all duration-300"
+            *ngIf="city.showSubCities"
+          >
+            <a
+              *ngFor="let subCity of city.subCities"
+              href="#"
+              class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+            >
+              {{ subCity }}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="mt-10 w-full">
-  <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">
-    Common Visit Reasons
-  </h2>
-  <div class="grid grid-cols-4 gap-6">
-    <button
-      *ngFor="let reason of commonVisitReasons"
-      class="px-6 py-3 w-full text-left flex justify-between items-center transition-all duration-300 hover:shadow-xl"
-    >
-      <span class="text-gray-700 font-semibold">{{ reason }}</span>
-      <svg
-        class="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        ></path>
-      </svg>
-    </button>
+  <div class="mt-10 w-full bg-white p-24 max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-2">
+      <div class="mx-5">
+        <h1 class="text-sm">Zocdoc jobs</h1>
+        <p class="mt-2">
+          Join us, and help transform <br />healthcare for everyone.
+        </p>
+        <button class="p-2 rounded-md my-5 text-sm bg-[#fff04b]">
+          View job openings
+        </button>
+      </div>
+      <div class="image-container flex items-center justify-center relative">
+        <img
+          src="../../../assets/img/city/abc.png"
+          alt="Centered Image"
+          class="image absolute w-[400px] h-[394px] mt-[-50px]"
+        />
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="mt-10">
-  <a
-    href="#"
-    class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-  >
-    Join Us, and Help Transform Healthcare for Everyone.
-  </a>
+  <div class="mt-10 w-full max-w-6xl mx-auto pb-[30px] px-2">
+    <h2 class="text-sm mb-6 text-gray-700 font-medium">Common Visit Reasons</h2>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div
+        *ngFor="let common of commonVisitReasons"
+        class="flex flex-col col-span-1 p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+      >
+        <button
+          class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors"
+          (click)="toggleSubCity(common)"
+        >
+          <span class="text-gray-600 text-sm">{{ common.name }}</span>
+          <svg
+            class="w-5 h-5 transition-transform duration-300"
+            [class.rotate-180]="common.showSubCities"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+        <div
+          class="mt-2 w-full p-4 transition-all duration-300"
+          *ngIf="common.showSubCities"
+        >
+          <a
+            *ngFor="let subCity of common.subCommonVisitReasons"
+            href="#"
+            class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+          >
+            {{ subCity }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

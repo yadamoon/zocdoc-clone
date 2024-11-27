@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { BannerComponent } from '../../banner/banner.component';
+import { SignInComponent } from '../../../auth/sign-in/sign-in.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, BannerComponent],
+  imports: [CommonModule, BannerComponent, SignInComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -14,6 +15,25 @@ export class HeaderComponent {
   isLoginOpen = false;
   selectedSpeciality: string | null = null;
   selectedTab = 'doctors';
+
+  // Corrected variable name
+  isLoginModalOpen: boolean = false;
+
+
+  @Output() signInModalToggle = new EventEmitter<void>();
+
+  toggleSignInModal() {
+    this.signInModalToggle.emit();
+  }
+
+  toggleLogin() { // Corrected function name
+    this.isLoginOpen = !this.isLoginOpen; // Ensure this is the correct variable
+  }
+
+  openLoginModal() {
+    this.isLoginModalOpen = true;
+    this.isLoginOpen = false; // Close dropdown when modal opens
+  }
 
   doctorSpecialities = [
     'Primary Care Physicians',
@@ -188,6 +208,18 @@ export class HeaderComponent {
         services: [
           "Hyperactive Disorder (ADD / ADHD)",
           "OB / GYN Emergency",
+          "Nexplanon Removal",
+          "Hyperactive Disorder (ADD / ADHD)",
+          "OB / GYN Emergency",
+          "Nexplanon Removal",
+          "Hyperactive Disorder (ADD / ADHD)",
+          "OB / GYN Emergency",
+          "Nexplanon Removal",
+          "Hyperactive Disorder (ADD / ADHD)",
+          "OB / GYN Emergency",
+          "Nexplanon Removal",
+          "Hyperactive Disorder (ADD / ADHD)",
+          "OB / GYN Emergency",
           "Nexplanon Removal"
         ]
       },
@@ -197,6 +229,18 @@ export class HeaderComponent {
         services: [
           "Pre-Surgery Checkup / Pre-Surgical Clearance",
           "Annual Physical",
+          "LGBT Care",
+          "Pre-Surgery Checkup / Pre-Surgical Clearance",
+          "Annual Physical",
+          "LGBT Care",
+          "Pre-Surgery Checkup / Pre-Surgical Clearance",
+          "Annual Physical",
+          "LGBT Care",
+          "Pre-Surgery Checkup / Pre-Surgical Clearance",
+          "Annual Physical",
+          "LGBT Care",
+          "Pre-Surgery Checkup / Pre-Surgical Clearance",
+          "Annual Physical",
           "LGBT Care"
         ]
       },
@@ -204,6 +248,24 @@ export class HeaderComponent {
         name: 'City 3',
         showSubCities: false,
         services: [
+          "ENT Emergency Visit",
+          "Pain Medication Prescription",
+          "IUD Insertion",
+          "ENT Emergency Visit",
+          "Pain Medication Prescription",
+          "IUD Insertion",
+          "ENT Emergency Visit",
+          "Pain Medication Prescription",
+          "IUD Insertion",
+          "ENT Emergency Visit",
+          "Pain Medication Prescription",
+          "IUD Insertion",
+          "ENT Emergency Visit",
+          "Pain Medication Prescription",
+          "IUD Insertion",
+          "ENT Emergency Visit",
+          "Pain Medication Prescription",
+          "IUD Insertion",
           "ENT Emergency Visit",
           "Pain Medication Prescription",
           "IUD Insertion"
@@ -220,12 +282,6 @@ export class HeaderComponent {
     this.isLoginOpen = false;
 
   }
-
-  toggleLogin() {
-    this.isLoginOpen = !this.isLoginOpen;
-    this.isBrowseOpen = false;
-  }
-
 
   toggleModal() {
     this.isBrowseOpen = !this.isBrowseOpen;

@@ -8,11 +8,12 @@ import { AdvertComponent } from './portal/advert/advert.component';
 import { PartnerComponent } from './portal/partner/partner.component';
 import { DoctorsComponent } from './portal/doctors/doctors.component';
 import { FooterComponent } from './portal/common/footer/footer.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NetworkDoctorComponent, ServicesComponent, AdvertComponent, PartnerComponent, DoctorsComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, NetworkDoctorComponent, ServicesComponent, AdvertComponent, PartnerComponent, DoctorsComponent, FooterComponent, SignInComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

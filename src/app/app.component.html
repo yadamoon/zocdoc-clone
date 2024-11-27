@@ -1,7 +1,8 @@
-<app-header />
+<app-header (signInModalToggle)="signInComponent.openModal()" />
 <app-network-doctor />
 <app-services></app-services>
 <app-advert></app-advert>
 <app-partner></app-partner>
 <app-doctors></app-doctors>
 <app-footer></app-footer>
+<app-sign-in #signInComponent></app-sign-in>

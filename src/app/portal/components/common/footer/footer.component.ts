@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FlowbiteService } from '../../../../services/flowbite.service';
 
-import { FlowbiteService } from '../../../services/flowbite.service';
+
 
 @Component({
   selector: 'app-footer',

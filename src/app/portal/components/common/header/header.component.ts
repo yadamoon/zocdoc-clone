@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { BannerComponent } from '../../banner/banner.component';
-import { SignInComponent } from '../../../auth/sign-in/sign-in.component';
+import { SignInComponent } from '../../../../auth/sign-in/sign-in.component';
 
 @Component({
   selector: 'app-header',

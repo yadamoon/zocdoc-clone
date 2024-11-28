@@ -13,9 +13,17 @@ export class SignInComponent {
 
   openModal() {
     this.isOpen = true;
+    this.toggleBodyScroll();
   }
 
   closeModal() {
     this.isOpen = false;
+  }
+  toggleBodyScroll() {
+    if (this.isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 }

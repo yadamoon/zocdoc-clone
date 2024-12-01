@@ -1,13 +1,21 @@
 <nav
-  class="bg-[#fdfbee] border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 relative"
+  [ngClass]="{
+    'bg-[#fdfbee]': isHomePage(),
+    'bg-white': isProvider()
+  }"
+  class="border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 relative"
 >
-  <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+  <div
+    *ngIf="isHomePage()"
+    class="flex items-center space-x-3 rtl:space-x-reverse"
+    style="z-index: -1"
+  >
     <img
       src="../../../../assets/img/1.png"
       class="h-52 w-1/4 absolute top-4 right-52 mx-2"
       alt="Zocdoc Logo"
     />
-  </a>
+  </div>
   <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
     <a href="#" class="flex">
       <img
@@ -16,11 +24,27 @@
         alt="Zocdoc Logo"
       />
 
-      <span class="text-xl">Zocdoc</span>
+      <span class="text-xl"
+        >Zocdoc
+        <span *ngIf="isProvider()" class="text-[10px]"
+          >for providers</span
+        ></span
+      >
+
+      <!-- <div *ngFor="let item of navItems">
+        <a href="">{{ item.itemName }}</a>
+      </div> -->
+      <!-- <div>
+        <div *ngIf="isProvider()">
+
+        </div>
+        <div *ngIf="isHomePage()">home page</div>
+      </div> -->
     </a>
 
     <div class="flex items-center space-x-6">
       <div
+        *ngIf="isHomePage()"
         class="relative"
         [ngClass]="{ open: isBrowseOpen }"
         (click)="toggleBrowse()"
@@ -233,17 +257,452 @@
         <!-- end of the dropdown menu -->
       </div>
 
-      <a
-        href="#"
-        class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-        >Help</a
-      >
+      <div *ngIf="isHomePage()" class="space-x-5">
+        <a
+          href="#"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >Help</a
+        >
 
-      <a
-        href="#"
-        class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-        >List your practice on Zocdoc</a
+        <a
+          routerLink="/providers"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >List your practice on Zocdoc</a
+        >
+      </div>
+      <div
+        *ngIf="isProvider()"
+        class="relative"
+        [ngClass]="{ open: isBrowseOpen }"
+        (click)="toggleBrowse()"
       >
+        <button
+          data-modal-target="default-modal"
+          data-modal-toggle="default-modal"
+          class="flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          Solutions
+
+          <svg
+            class="w-5 h-5 ml-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- start of the dropdown menu and model with tabs -->
+
+        <!-- Main modal -->
+        <div
+          id="default-modal"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        >
+          <div class="relative p-4 w-[1000px] max-w-full max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+
+              <!-- Modal body -->
+
+              <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul
+                  class="flex flex-wrap -mb-px text-sm font-medium text-center"
+                  id="default-tab"
+                  data-tabs-toggle="#default-tab-content"
+                  role="tablist"
+                >
+                  <li class="me-2" role="presentation">
+                    <button
+                      class="inline-block p-4 border-b-2 rounded-t-lg"
+                      id="profile-tab"
+                      data-tabs-target="#profile"
+                      type="button"
+                      role="tab"
+                      aria-controls="profile"
+                      aria-selected="false"
+                    >
+                      Specialties
+                    </button>
+                  </li>
+                  <li class="me-2" role="presentation">
+                    <button
+                      class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                      id="dashboard-tab"
+                      data-tabs-target="#dashboard"
+                      type="button"
+                      role="tab"
+                      aria-controls="dashboard"
+                      aria-selected="false"
+                    >
+                      Procedures
+                    </button>
+                  </li>
+
+                  <li
+                    class="mx-auto justify-end items-end ml-[680px] mt-[10px]"
+                  >
+                    <button
+                      type="button"
+                      class="text-gray-700 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      data-modal-hide="default-modal"
+                    >
+                      <svg
+                        class="w-3 h-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div id="default-tab-content">
+                <div
+                  class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+                  id="profile"
+                  role="tabpanel"
+                  aria-labelledby="profile-tab"
+                >
+                  <div class="grid grid-cols-3 gap-3">
+                    <div
+                      *ngFor="let common of commonVisitReasons"
+                      class="flex flex-col col-span-1 p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+                    >
+                      <button
+                        class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors"
+                        (click)="toggleSubCity(common)"
+                      >
+                        <span class="text-gray-900 text-sm">{{
+                          common.name
+                        }}</span>
+                        <svg
+                          class="w-5 h-5 transition-transform duration-300"
+                          [class.rotate-180]="common.showSubCities"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div
+                        class="mt-2 w-full p-4 transition-all duration-300"
+                        *ngIf="common.showSubCities"
+                      >
+                        <a
+                          *ngFor="let subCity of common.subCommonVisitReasons"
+                          href="#"
+                          class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+                        >
+                          {{ subCity }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+                  id="dashboard"
+                  role="tabpanel"
+                  aria-labelledby="dashboard-tab"
+                >
+                  <div class="grid grid-cols-3 gap-3">
+                    <div
+                      *ngFor="let common of producer.subCityProducer"
+                      class="flex flex-col col-span-1 p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+                    >
+                      <button
+                        class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors"
+                        (click)="toggleSubCity(common)"
+                      >
+                        <span class="text-gray-600 text-sm underline">{{
+                          common.services
+                        }}</span>
+                        <svg
+                          class="w-5 h-5 transition-transform duration-300"
+                          [class.rotate-180]="common.showSubCities"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div
+                        class="mt-2 w-full p-4 transition-all duration-300"
+                        *ngIf="common.showSubCities"
+                      >
+                        <a
+                          *ngFor="let subCity of common.services"
+                          href="#"
+                          class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+                        >
+                          {{ subCity }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modal footer -->
+            </div>
+          </div>
+        </div>
+
+        <!-- end of the dropdown menu -->
+      </div>
+      <div
+        *ngIf="isProvider()"
+        class="relative"
+        [ngClass]="{ open: isBrowseOpen }"
+        (click)="toggleBrowse()"
+      >
+        <button
+          data-modal-target="default-modal"
+          data-modal-toggle="default-modal"
+          class="flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          Learn
+
+          <svg
+            class="w-5 h-5 ml-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- start of the dropdown menu and model with tabs -->
+
+        <!-- Main modal -->
+        <div
+          id="default-modal"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        >
+          <div class="relative p-4 w-[1000px] max-w-full max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+
+              <!-- Modal body -->
+
+              <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul
+                  class="flex flex-wrap -mb-px text-sm font-medium text-center"
+                  id="default-tab"
+                  data-tabs-toggle="#default-tab-content"
+                  role="tablist"
+                >
+                  <li class="me-2" role="presentation">
+                    <button
+                      class="inline-block p-4 border-b-2 rounded-t-lg"
+                      id="profile-tab"
+                      data-tabs-target="#profile"
+                      type="button"
+                      role="tab"
+                      aria-controls="profile"
+                      aria-selected="false"
+                    >
+                      Specialties
+                    </button>
+                  </li>
+                  <li class="me-2" role="presentation">
+                    <button
+                      class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                      id="dashboard-tab"
+                      data-tabs-target="#dashboard"
+                      type="button"
+                      role="tab"
+                      aria-controls="dashboard"
+                      aria-selected="false"
+                    >
+                      Procedures
+                    </button>
+                  </li>
+
+                  <li
+                    class="mx-auto justify-end items-end ml-[680px] mt-[10px]"
+                  >
+                    <button
+                      type="button"
+                      class="text-gray-700 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      data-modal-hide="default-modal"
+                    >
+                      <svg
+                        class="w-3 h-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div id="default-tab-content">
+                <div
+                  class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+                  id="profile"
+                  role="tabpanel"
+                  aria-labelledby="profile-tab"
+                >
+                  <div class="grid grid-cols-3 gap-3">
+                    <div
+                      *ngFor="let common of commonVisitReasons"
+                      class="flex flex-col col-span-1 p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+                    >
+                      <button
+                        class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors"
+                        (click)="toggleSubCity(common)"
+                      >
+                        <span class="text-gray-900 text-sm">{{
+                          common.name
+                        }}</span>
+                        <svg
+                          class="w-5 h-5 transition-transform duration-300"
+                          [class.rotate-180]="common.showSubCities"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div
+                        class="mt-2 w-full p-4 transition-all duration-300"
+                        *ngIf="common.showSubCities"
+                      >
+                        <a
+                          *ngFor="let subCity of common.subCommonVisitReasons"
+                          href="#"
+                          class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+                        >
+                          {{ subCity }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+                  id="dashboard"
+                  role="tabpanel"
+                  aria-labelledby="dashboard-tab"
+                >
+                  <div class="grid grid-cols-3 gap-3">
+                    <div
+                      *ngFor="let common of producer.subCityProducer"
+                      class="flex flex-col col-span-1 p-1 mb-1 border-b border-b-gray-400 rounded-sm"
+                    >
+                      <button
+                        class="w-full px-6 py-3 text-left flex justify-between items-center transition-colors"
+                        (click)="toggleSubCity(common)"
+                      >
+                        <span class="text-gray-600 text-sm underline">{{
+                          common.services
+                        }}</span>
+                        <svg
+                          class="w-5 h-5 transition-transform duration-300"
+                          [class.rotate-180]="common.showSubCities"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </button>
+                      <div
+                        class="mt-2 w-full p-4 transition-all duration-300"
+                        *ngIf="common.showSubCities"
+                      >
+                        <a
+                          *ngFor="let subCity of common.services"
+                          href="#"
+                          class="block text-gray-600 underline hover:text-gray-800 mb-1 transition duration-200"
+                        >
+                          {{ subCity }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modal footer -->
+            </div>
+          </div>
+        </div>
+
+        <!-- end of the dropdown menu -->
+      </div>
+      <div *ngIf="isProvider()" class="space-x-5">
+        <a
+          routerLink="/providers"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >Find care</a
+        >
+      </div>
 
       <div
         class="relative"
@@ -311,5 +770,6 @@
     </div>
   </div>
 
-  <app-banner></app-banner>
+  <app-banner *ngIf="isHomePage()"></app-banner>
+  <!-- <div *ngIf="isProvider()">provider banner</div> -->
 </nav>

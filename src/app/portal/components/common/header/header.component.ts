@@ -1,20 +1,34 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BannerComponent } from '../../banner/banner.component';
-import { SignInComponent } from '../../../../auth/sign-in/sign-in.component';
+import { SignInComponent } from '../../../../auth/components/sign-in/sign-in.component';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+
+
+interface NavItem {
+  itemName: string;
+  cssClass?: string;
+  action?: () => void;
+}
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, BannerComponent, SignInComponent],
+  imports: [CommonModule, RouterLink, BannerComponent, SignInComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  constructor(private router: Router) { }
+
   isBrowseOpen = false;
   isLoginOpen = false;
   selectedSpeciality: string | null = null;
   selectedTab = 'doctors';
+  @Input() navItems!: NavItem[];
 
   // Corrected variable name
   isLoginModalOpen: boolean = false;
@@ -298,5 +312,13 @@ export class HeaderComponent {
 
   toggleSubCity(city: any) {
     city.showSubCities = !city.showSubCities;
+  }
+
+  isHomePage(): boolean {
+    return this.router.url === '/';
+  }
+
+  isProvider(): boolean {
+    return this.router.url === '/providers';
   }
 }

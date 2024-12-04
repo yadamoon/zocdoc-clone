@@ -1,1 +1,100 @@
-<p>marketplace works!</p>
+<div class="bg-[#ffefbb] p-16">
+  <div class="items-center justify-center">
+    <h1 class="text-3xl text-center">How does the Zocdoc Marketplace work?</h1>
+    <p class="text-gray-700 text-[16px] text-center">
+      The Zocdoc Marketplace is a website and app where patients search for and
+      book appointments with new providers.
+    </p>
+  </div>
+  <div class="max-w-screen-lg mx-auto my-5">
+    <div class="relative w-full">
+      <!-- Carousel wrapper -->
+      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div
+          *ngFor="let item of carouselItems; let i = index"
+          [ngClass]="{
+            block: currentIndex === i,
+            hidden: currentIndex !== i
+          }"
+          class="duration-700 ease-in-out grid grid-cols-1 bg-white md:grid-cols-2"
+        >
+          <div
+            [ngClass]="{
+              'bg-[#fed337] justify-center items-center': item.image
+            }"
+          >
+            <img
+              [src]="item.image"
+              class="block w-2/3 h-2/3 m-auto mt-[62px]"
+              [alt]="'Image ' + (i + 1)"
+            />
+          </div>
+          <div class="p-16">
+            <p class="text-gray-700 dark:text-gray-300">
+              <span class="text-2xl font-bold">{{ item.title }}</span>
+              <br />
+              <span class="text-gray-600">
+                {{ item.description }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider controls -->
+      <button
+        type="button"
+        class="absolute bottom-[-100px] right-16 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        (click)="next()"
+        (click)="previous()"
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full"
+        >
+          <svg
+            class="w-4 h-4 text-black rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 1 1 5l4 4"
+            />
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
+      <button
+        type="button"
+        class="absolute bottom-[-100px] end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        (click)="next()"
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full"
+        >
+          <svg
+            class="w-4 h-4 text-black rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

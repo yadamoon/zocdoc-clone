@@ -10,6 +10,7 @@ import { MarketplaceComponent } from './components/marketplace/marketplace.compo
 import { HelpingComponent } from './components/helping/helping.component';
 import { FooterComponent } from '../common/footer/footer.component';
 import { ProvidersSquigglethriveComponent } from './components/providers-squigglethrive/providers-squigglethrive.component';
+import { ZocdocSolutionsComponent } from "./zocdoc-solutions/zocdoc-solutions.component";
 
 interface NavItem {
   itemName: string;
@@ -19,7 +20,7 @@ interface NavItem {
 @Component({
   selector: 'app-providers',
   standalone: true,
-  imports: [CommonModule, BannerProviderComponent, ProductComponent, IntroduceComponent, SubscriptionOrFreeComponent, EnterpriseComponent, EhrsComponent, MarketplaceComponent, HelpingComponent, ProvidersSquigglethriveComponent, FooterComponent],
+  imports: [CommonModule, BannerProviderComponent, ProductComponent, IntroduceComponent, EnterpriseComponent, EhrsComponent, MarketplaceComponent, HelpingComponent, ProvidersSquigglethriveComponent, FooterComponent, ZocdocSolutionsComponent],
   templateUrl: './providers.component.html',
   styleUrl: './providers.component.css'
 })

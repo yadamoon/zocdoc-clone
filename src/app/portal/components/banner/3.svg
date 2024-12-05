@@ -1,1 +1,131 @@
-<svg viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:60px;position:absolute;top:-40px;right:-40px"><path d="M34.6699 54.3321C34.6699 54.3321 32.3317 53.6226 30.8511 52.5362C29.3705 51.4498 24.6939 50.0307 24.6939 50.0307" stroke="#333333" stroke-width="3" stroke-linecap="round"></path><path d="M27.3601 15.3395C27.3601 15.3395 25.0525 17.4668 23.6427 18.7928C22.2329 20.1188 19.3635 23.1692 19.3635 23.1692" stroke="#333333" stroke-width="3" stroke-linecap="round"></path><path d="M5.21654 8.61405C5.76208 10.6344 4.11539 13.8472 3.90669 18.0283" stroke="#333333" stroke-width="3" stroke-linecap="round"></path><path d="M36.4536 34.8824C36.1363 35.0219 33.5732 35.0729 29.9132 35.337C26.4274 35.5886 24.9323 35.8095 23.504 35.8665" stroke="#333333" stroke-width="3" stroke-linecap="round"></path></svg>
+<div class="max-w-screen-xl p-3 mx-auto my-8">
+  <div class="px-8 py-12 relative">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+      Book local dentists who take your insurance
+    </h1>
+    <div
+      class="w-full bg-white border border-gray-400 rounded-md p-[-10px] relative"
+    >
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img
+          src="../../../../assets/img/3.png"
+          class="h-10 w-10 absolute top-[-27px] right-[-33px] mx-2"
+          alt="Zocdoc Logo"
+        />
+      </a>
+      <form
+        class="flex space-x-0.5 justify-center items-center border-gray-600 ml-3"
+      >
+        <div class="flex-1 relative">
+          <span
+            class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Condition, procedure, doctor..."
+            class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          />
+          <span
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 px-2 text-gray-400"
+            >|</span
+          >
+        </div>
+        <div class="flex-1 relative">
+          <span
+            class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Mekele Town, TI"
+            class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          />
+          <span
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 px-2 text-gray-400"
+            >|</span
+          >
+        </div>
+        <div class="flex-1 relative ">
+          <span
+            class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Insurance carrier and plan"
+            class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          />
+        </div>
+        <div
+          class="bg-yellow-200 hover:bg-yellow-600 justify-center pl-5 pr-5 items-center"
+        >
+          <button type="submit" class="text-gray-700 items-center my-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

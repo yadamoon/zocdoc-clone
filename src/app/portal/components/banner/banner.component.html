@@ -35,11 +35,45 @@
               />
             </svg>
           </span>
-          <input
+          <!-- <input
             type="text"
             placeholder="Condition, procedure, doctor..."
             class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-          />
+          /> -->
+          <div class="relative">
+            <!-- Input field for conditions, procedures, or doctors -->
+            <!-- <input
+              type="text"
+              [(ngModel)]="selectedCondition"
+              placeholder="Condition, procedure, doctor..."
+              (ngModelChange)="onConditionChange($event)"
+              (focus)="showConditionDropdown = filteredConditions.length > 0"
+              class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            /> -->
+            <input
+              type="text"
+              [formControl]="conditiom"
+              placeholder="Condition, procedure, doctor..."
+              (ngModelChange)="onConditionChange($event)"
+              (focus)="showConditionDropdown = filteredConditions.length > 0"
+              class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+
+            <!-- Custom dropdown for conditions -->
+            <ul
+              *ngIf="filteredConditions.length > 0 && showConditionDropdown"
+              class="absolute left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto z-10"
+            >
+              <li
+                *ngFor="let condition of filteredConditions"
+                (click)="selectCondition(condition); onDropdownItemClick()"
+                class="px-4 py-2 text-gray-700 hover:bg-yellow-100 cursor-pointer"
+              >
+                {{ condition }}
+              </li>
+            </ul>
+          </div>
+
           <span
             class="absolute right-0 top-1/2 transform -translate-y-1/2 px-2 text-gray-400"
             >|</span
@@ -99,11 +133,59 @@
               />
             </svg>
           </span>
+
           <input
+            type="text"
+            [formControl]="insurance"
+            placeholder="Insurance carrier and plan"
+            (ngModelChange)="onInsurancePlanChange($event)"
+            (focus)="showDropdown = filteredInsurancePlans.length > 0"
+            class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          />
+
+          <!-- Custom dropdown -->
+          <ul
+            *ngIf="filteredInsurancePlans.length > 0 && showDropdown"
+            class="absolute left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto z-10"
+          >
+            <li
+              *ngFor="let plan of filteredInsurancePlans"
+              (click)="selectInsurancePlan(plan); onDropdownItemClick()"
+              class="px-4 py-2 text-gray-700 hover:bg-yellow-100 cursor-pointer"
+            >
+              {{ plan }}
+            </li>
+          </ul>
+
+          <!-- <input
             type="text"
             placeholder="Insurance carrier and plan"
             class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-          />
+          
+          
+          
+            /> -->
+          <!-- <div>
+            <input
+              type="text"
+              placeholder="Insurance carrier and plan"
+              list="insurance-plans"
+              class="w-full pl-8 pr-4 py-2 border-none rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+            <datalist id="insurance-plans" class="bg-blue-500">
+              <option value="Aetna" class="text-blue-500"></option>
+              <option value="Blue Cross Blue Shield"></option>
+              <option value="Cigna"></option>
+              <option value="Humana"></option>
+              <option value="UnitedHealthcare"></option>
+              <option value="Medicare"></option>
+              <option value="Medicaid"></option>
+              <option value="Kaiser Permanente"></option>
+            </datalist>
+          </div> -->
+          <div class="relative">
+            <!-- Input field -->
+          </div>
         </div>
         <div
           class="bg-yellow-200 hover:bg-yellow-600 justify-center pl-5 pr-5 items-center"

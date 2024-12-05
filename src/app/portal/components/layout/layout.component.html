@@ -1,5 +1,5 @@
-<app-header />
-<!-- (signInModalToggle)="signInComponent.openModal()"  -->
+<app-header (signInModalToggle)="openSignInModal()"></app-header>
+
 <router-outlet></router-outlet>
 <div *ngIf="isHomePage()">
   <app-network-doctor />
@@ -9,7 +9,5 @@
   <app-doctors></app-doctors>
   <app-footer></app-footer>
   <!-- <app-providers #providersComponent></app-providers> -->
-  <app-sign-in>
-    <!-- #signInComponent -->
-  </app-sign-in>
+  <app-sign-in #SignInComponent> </app-sign-in>
 </div>

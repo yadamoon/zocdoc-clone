@@ -1,6 +1,6 @@
 import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../common/header/header.component';
 import { NetworkDoctorComponent } from '../network-doctor/network-doctor.component';
 import { ServicesComponent } from '../services/services.component';
@@ -20,6 +20,9 @@ import { SignInComponent } from '../../../auth/components/sign-in/sign-in.compon
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
+  // Use ViewChild to get a reference to the SignInComponent
+  @ViewChild('SignInComponent') signInComponent!: SignInComponent;
+
   constructor(private router: Router) { }
   isHomePage(): boolean {
     return this.router.url === '/' || this.router.url === '/portal';
@@ -31,5 +34,9 @@ export class LayoutComponent {
 
   isHelpPage(): boolean {
     return this.router.url === '/help';
+  }
+
+  openSignInModal() {
+    this.signInComponent.openModal();
   }
 }

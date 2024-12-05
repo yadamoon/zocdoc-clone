@@ -2,6 +2,7 @@ import { ProvidersComponent } from './components/providers/providers.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
+import { HelpsComponent } from './components/helps/helps.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,11 @@ const routes: Routes = [
       {
         path: 'providers',
         component: ProvidersComponent
+
+      },
+      {
+        path: 'help',
+        component: HelpsComponent
       }
     ]
 

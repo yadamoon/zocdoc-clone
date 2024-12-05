@@ -1,10 +1,12 @@
 <nav
   [ngClass]="{
     'bg-[#fdfbee]': isHomePage(),
-    'bg-white': isProvider()
+    'bg-white': isProvider(),
+    'bg-[#fed337]': isHelpPage()
   }"
   class="border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 relative"
 >
+  <!-- home -->
   <div
     *ngIf="isHomePage()"
     class="flex items-center space-x-3 rtl:space-x-reverse"
@@ -17,7 +19,8 @@
     />
   </div>
   <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-    <a href="#" class="flex">
+    <!-- home and procvider -->
+    <a *ngIf="isHomePage() || isProvider()" href="#" class="flex">
       <img
         src="../../../../assets/img/zee_rgb.png"
         class="h-8"
@@ -40,6 +43,11 @@
         </div>
         <div *ngIf="isHomePage()">home page</div>
       </div> -->
+    </a>
+
+    <!-- help page -->
+    <a *ngIf="isHelpPage()" href="#" class="flex">
+      <span class="text-xl">Help Center </span>
     </a>
 
     <div class="flex items-center space-x-6">
@@ -256,10 +264,10 @@
 
         <!-- end of the dropdown menu -->
       </div>
-
+      <!-- home -->
       <div *ngIf="isHomePage()" class="space-x-5">
         <a
-          href="#"
+          routerLink="/help"
           class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
           >Help</a
         >
@@ -270,6 +278,27 @@
           >List your practice on Zocdoc</a
         >
       </div>
+      <!-- help page -->
+      <div *ngIf="isHelpPage()" class="space-x-5">
+        <a
+          href="#"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >zocdoc</a
+        >
+
+        <a
+          routerLink="/providers"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >contact us
+        </a>
+        <a
+          routerLink="/providers"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >English
+        </a>
+      </div>
+
+      <!-- provider -->
       <div
         *ngIf="isProvider()"
         class="relative"
@@ -483,6 +512,7 @@
 
         <!-- end of the dropdown menu -->
       </div>
+      <!-- provider -->
       <div
         *ngIf="isProvider()"
         class="relative"
@@ -704,6 +734,7 @@
         >
       </div>
 
+      <!-- common  -->
       <div
         class="relative"
         [ngClass]="{ open: isLoginOpen }"
@@ -771,5 +802,7 @@
   </div>
 
   <app-banner *ngIf="isHomePage()"></app-banner>
+  <!-- for help page -->
+  <app-search *ngIf="isHelpPage()"></app-search>
   <!-- <div *ngIf="isProvider()">provider banner</div> -->
 </nav>

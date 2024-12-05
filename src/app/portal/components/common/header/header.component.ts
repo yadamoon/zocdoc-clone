@@ -4,6 +4,7 @@ import { BannerComponent } from '../../banner/banner.component';
 import { SignInComponent } from '../../../../auth/components/sign-in/sign-in.component';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import { SearchComponent } from "../../helps/search/search.component";
 
 
 interface NavItem {
@@ -16,7 +17,7 @@ interface NavItem {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, BannerComponent, SignInComponent],
+  imports: [CommonModule, RouterLink, BannerComponent, SearchComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -320,5 +321,8 @@ export class HeaderComponent {
 
   isProvider(): boolean {
     return this.router.url === '/providers';
+  }
+  isHelpPage(): boolean {
+    return this.router.url === '/help';
   }
 }

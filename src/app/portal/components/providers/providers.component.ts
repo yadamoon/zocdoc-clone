@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { BannerProviderComponent } from './components/banner-provider/banner-provider.component';
 import { ProductComponent } from './components/product/product.component';
 import { IntroduceComponent } from './components/introduce/introduce.component';
-import { SubscriptionOrFreeComponent } from './components/subscription-or-free/subscription-or-free.component';
 import { EnterpriseComponent } from './components/enterprise/enterprise.component';
 import { EhrsComponent } from './components/ehrs/ehrs.component';
 import { MarketplaceComponent } from './components/marketplace/marketplace.component';

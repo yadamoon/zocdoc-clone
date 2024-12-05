@@ -325,4 +325,7 @@ export class HeaderComponent {
   isHelpPage(): boolean {
     return this.router.url === '/help';
   }
+  onSignInModalToggle(signInComponent: SignInComponent) {
+    signInComponent.openModal();
+  }
 }

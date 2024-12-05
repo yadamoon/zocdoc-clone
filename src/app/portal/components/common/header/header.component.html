@@ -4,6 +4,16 @@
     'bg-white': isProvider(),
     'bg-[#fed337]': isHelpPage()
   }"
+  [ngStyle]="
+    isHelpPage()
+      ? {
+          'background-image':
+            'url(../../../../../../../assets/img/helps/df578b8873254ecb561a851228a6e913.png)',
+          'background-size': 'cover',
+          'background-position': 'center'
+        }
+      : {}
+  "
   class="border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 relative"
 >
   <!-- home -->
@@ -33,16 +43,6 @@
           >for providers</span
         ></span
       >
-
-      <!-- <div *ngFor="let item of navItems">
-        <a href="">{{ item.itemName }}</a>
-      </div> -->
-      <!-- <div>
-        <div *ngIf="isProvider()">
-
-        </div>
-        <div *ngIf="isHomePage()">home page</div>
-      </div> -->
     </a>
 
     <!-- help page -->
@@ -291,11 +291,13 @@
           class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
           >contact us
         </a>
-        <a
-          routerLink="/providers"
-          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-          >English
-        </a>
+
+        <select
+          id="countries"
+          class="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border-none bg-[#fed337] p-[2px]"
+        >
+          <option selected>English</option>
+        </select>
       </div>
 
       <!-- provider -->
@@ -735,66 +737,69 @@
       </div>
 
       <!-- common  -->
-      <div
-        class="relative"
-        [ngClass]="{ open: isLoginOpen }"
-        (click)="toggleLogin()"
-      >
-        <button
-          class="flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-        >
-          Log in
-
-          <svg
-            class="w-5 h-5 ml-1"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-
+      <div *ngIf="!isHelpPage()">
         <div
-          class="absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
-          *ngIf="isLoginOpen"
+          class="relative"
+          [ngClass]="{ open: isLoginOpen }"
+          (click)="toggleLogin()"
         >
-          <div class="py-2">
-            <div
-              class="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-400"
-            >
-              Patients
-            </div>
-            <button
-              (click)="toggleSignInModal()"
-              class="text-gray-700 items-center text-center border-none text-sm px-5 py-2.5"
-            >
-              Login
-            </button>
-          </div>
+          <button
+            class="flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >
+            Log in
 
-          <div class="py-2">
-            <div
-              class="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-400"
+            <svg
+              class="w-5 h-5 ml-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Doctors
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            class="absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
+            *ngIf="isLoginOpen"
+          >
+            <div class="py-2">
+              <div
+                class="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-400"
+              >
+                Patients
+              </div>
+              <button
+                (click)="toggleSignInModal()"
+                class="text-gray-700 items-center text-center border-none text-sm px-5 py-2.5"
+              >
+                Login
+              </button>
             </div>
-            <button
-              (click)="toggleSignInModal()"
-              class="text-gray-700 items-center text-center border-none text-sm px-5 py-2.5"
-            >
-              Login
-            </button>
+
+            <div class="py-2">
+              <div
+                class="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-400"
+              >
+                Doctors
+              </div>
+              <button
+                (click)="toggleSignInModal()"
+                class="text-gray-700 items-center text-center border-none text-sm px-5 py-2.5"
+              >
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <button
         class="px-4 py-2 bg-yellow-200 hover:bg-yellow-500 text-gray-900 rounded-md"
+        *ngIf="!isHelpPage()"
       >
         Sign up
       </button>

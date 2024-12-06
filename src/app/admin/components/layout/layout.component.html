@@ -1,0 +1,151 @@
+<div class="min-h-screen bg-gray-100">
+  <!-- Sidebar -->
+  <aside
+    class="fixed inset-y-0 left-0 w-64 bg-[#3e60ad] text-white transition-transform duration-300"
+    [class.translate-x-0]="isSidebarOpen"
+    [class.-translate-x-full]="!isSidebarOpen"
+  >
+    <!-- Logo -->
+    <div class="p-4 border-b border-yellow-300">
+      <div class="flex items-center space-x-2">
+        <img src="../../../../assets/img/zee_rgb.png" class="w-8 h-8" alt="" />
+        <span class="text-xl font-bold">Zocdoc</span>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="p-4 space-y-2">
+      <a
+        routerLink="/admin/dashboard"
+        routerLinkActive="bg-primary-400"
+        class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <!-- <a
+        routerLink="/admin/list"
+        routerLinkActive="bg-primary-400"
+        class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <i class="fas fa-building"></i>
+        <span>List-RealEstate</span>
+      </a> -->
+
+      <a
+        routerLink="/admin/users"
+        routerLinkActive="bg-primary-400"
+        class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <i class="fas fa-users"></i>
+        <span>Users</span>
+      </a>
+
+      <!-- <a
+        routerLink="/admin/agents"
+        routerLinkActive="bg-primary-400"
+        class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <i class="fas fa-user-tie"></i>
+        <span>Agents</span>
+      </a> -->
+
+      <a
+        routerLink="/admin/report"
+        routerLinkActive="bg-primary-400"
+        class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <i class="fas fa-envelope"></i>
+        <span>Report</span>
+      </a>
+
+      <a
+        routerLink="/admin/settings"
+        routerLinkActive="bg-primary-400"
+        class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="ml-64 min-h-screen">
+    <!-- Top Navigation -->
+    <header class="bg-gray-100 shadow-sm">
+      <div class="flex items-center justify-between px-6 py-4">
+        <button (click)="toggleSidebar()" class="lg:hidden">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <!-- Search -->
+        <div class="hidden md:flex flex-1 max-w-xl mx-6">
+          <div class="relative w-full">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:border-primary-400 focus:outline-none"
+            />
+            <i
+              class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+            ></i>
+          </div>
+        </div>
+
+        <!-- User Menu -->
+        <div class="flex items-center space-x-4">
+          <button class="relative">
+            <i class="fas fa-bell text-xl"></i>
+            <span
+              class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center"
+            >
+              3
+            </span>
+          </button>
+
+          <div class="relative" #userMenu>
+            <button
+              (click)="toggleUserMenu()"
+              class="flex items-center space-x-2"
+            >
+              <img
+                src="assets/images/admin-avatar.jpg"
+                alt="Admin"
+                class="w-8 h-8 rounded-full"
+              />
+              <span class="hidden md:inline">John Doe</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div
+              *ngIf="isUserMenuOpen"
+              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                <i class="fas fa-user mr-2"></i>Profile
+              </a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                <i class="fas fa-cog mr-2"></i>Settings
+              </a>
+              <div class="border-t border-gray-100 my-2"></div>
+              <button
+                (click)="logout()"
+                class="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600"
+              >
+                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="p-6">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { SignInComponent } from '../../../../auth/components/sign-in/sign-in.com
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { SearchComponent } from "../../helps/search/search.component";
+import { BannerMainComponent } from "../../../../patient/banner-main/banner-main.component";
 
 
 interface NavItem {
@@ -17,14 +18,14 @@ interface NavItem {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, BannerComponent, SearchComponent],
+  imports: [CommonModule, RouterLink, BannerComponent, SearchComponent, BannerMainComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 
   constructor(private router: Router) { }
-
+  isDropdownOpen = false;
   isBrowseOpen = false;
   isLoginOpen = false;
   selectedSpeciality: string | null = null;
@@ -325,7 +326,43 @@ export class HeaderComponent {
   isHelpPage(): boolean {
     return this.router.url === '/help';
   }
+  isMainPatient(): boolean {
+    return this.router.url === '/patient';
+  }
   onSignInModalToggle(signInComponent: SignInComponent) {
     signInComponent.openModal();
   }
+
+
+  // for main Page
+  isMainPatients(): boolean {
+    // Your condition to check if the main patient view should be shown
+    return true;
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  handleNotificationClick(): void {
+    console.log('Notification button clicked');
+    // Add your notification logic here
+  }
+
+  handleProfileClick(): void {
+    console.log('Profile clicked');
+    // Add your profile logic here
+  }
+
+  handleSettingsClick(): void {
+    console.log('Settings clicked');
+    // Add your settings logic here
+  }
+
+  handleLogoutClick(): void {
+    console.log('Logout clicked');
+    // Add your logout logic here
+  }
+
+  // end main Page functions
 }

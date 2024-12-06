@@ -1,0 +1,17 @@
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl mb-4">Your insurance plans</h2>
+  <ul>
+    <li
+      *ngFor="let plan of insurancePlans"
+      class="flex justify-between items-center"
+    >
+      <p>
+        {{ plan.type }}
+        <br />
+        <span class="text-gray-400">None added</span>
+      </p>
+
+      <button class="border border-gray-400 px-4 py-2 my-1 rounded">Add</button>
+    </li>
+  </ul>
+</div>

@@ -1,8 +1,9 @@
 <nav
   [ngClass]="{
-    'bg-[#fdfbee]': isHomePage(),
+    'bg-[#fdfbee]': isHomePage() || isMainPatient(),
     'bg-white': isProvider(),
-    'bg-[#fed337]': isHelpPage()
+    'bg-[#fed337]': isHelpPage(),
+  
   }"
   [ngStyle]="
     isHelpPage()
@@ -30,7 +31,11 @@
   </div>
   <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
     <!-- home and procvider -->
-    <a *ngIf="isHomePage() || isProvider()" href="#" class="flex">
+    <a
+      *ngIf="isHomePage() || isProvider() || isMainPatient()"
+      href="#"
+      class="flex"
+    >
       <img
         src="../../../../assets/img/zee_rgb.png"
         class="h-8"
@@ -737,7 +742,7 @@
       </div>
 
       <!-- common  -->
-      <div *ngIf="!isHelpPage()">
+      <div *ngIf="!isHelpPage() && !isMainPatient()">
         <div
           class="relative"
           [ngClass]="{ open: isLoginOpen }"
@@ -799,15 +804,90 @@
 
       <button
         class="px-4 py-2 bg-yellow-200 hover:bg-yellow-500 text-gray-900 rounded-md"
-        *ngIf="!isHelpPage()"
+        *ngIf="!isHelpPage() && !isMainPatient()"
       >
         Sign up
       </button>
+
+      <!-- PatientPage -->
+      <div *ngIf="isMainPatient()" class="space-x-5 flex items-center">
+        <!-- Notification Button -->
+        <button
+          class="px-4 py-2 space-x-2 flex border bg-[#fdfbee] text-gray-900 rounded-md hover:bg-[#f8e6c2] transition"
+          (click)="handleNotificationClick()"
+        >
+          <svg
+            class="h-6 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+          <span>0</span>
+        </button>
+
+        <!-- Dropdown Button -->
+        <div class="relative">
+          <div class="flex items-center">
+            <button
+              class="px-4 py-2 border bg-[#fdfbee] text-gray-900 rounded-md hover:bg-[#f8e6c2] transition"
+            >
+              <div class="flex items-center">
+                <span>Yared</span>
+                <svg
+                  class="ml-2 h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+
+          <!-- Dropdown Menu -->
+          <div
+            *ngIf="isDropdownOpen"
+            class="absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded-md shadow-lg"
+          >
+            <ul class="py-1">
+              <li
+                class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                (click)="handleProfileClick()"
+              >
+                View Profile
+              </li>
+              <li
+                class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                (click)="handleSettingsClick()"
+              >
+                Settings
+              </li>
+              <li
+                class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                (click)="handleLogoutClick()"
+              >
+                Logout
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <app-banner *ngIf="isHomePage()"></app-banner>
   <!-- for help page -->
   <app-search *ngIf="isHelpPage()"></app-search>
+  <app-banner-main *ngIf="isMainPatient()"></app-banner-main>
   <!-- <div *ngIf="isProvider()">provider banner</div> -->
 </nav>

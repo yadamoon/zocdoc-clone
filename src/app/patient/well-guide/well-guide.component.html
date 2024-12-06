@@ -1,0 +1,56 @@
+<div
+  class="bg-white p-6 rounded-lg shadow-md shadow-gray-200 max-w-screen-2xl mx-auto"
+>
+  <!-- Title Section -->
+  <h2 class="text-2xl text-gray-800 mb-4">Well Guide</h2>
+  <p class="text-sm text-gray-500 mb-4">
+    Stay on top of your health with your personalized care checklist.
+  </p>
+  <!-- Progress Bar -->
+  <div class="mb-6">
+    <div class="relative w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+      <div
+        class="absolute top-0 left-0 h-2 bg-gray-500 rounded-full"
+        style="width: 5%"
+      ></div>
+    </div>
+    <p class="text-sm mt-2 text-gray-600">0 of 4 completed</p>
+  </div>
+  <!-- Checklist Items -->
+  <div class="space-y-6">
+    <div
+      *ngFor="let item of guideItems"
+      class="flex justify-between items-center border-b pb-4"
+    >
+      <!-- Image -->
+      <img
+        [src]="item.image"
+        alt="Checklist Item"
+        class="w-14 h-14 rounded-full object-cover shadow"
+      />
+      <!-- Details -->
+      <div class="flex-1 mx-4">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full"
+            >Due</span
+          >
+          <h3 class="text-lg text-gray-800">{{ item.title }}</h3>
+        </div>
+        <p class="text-sm text-gray-500">{{ item.description }}</p>
+      </div>
+      <!-- Actions -->
+      <div class="flex flex-col items-end gap-2">
+        <button
+          class="text-sm text-gray-600 hover:text-green-700 hover:underline"
+        >
+          Mark as Done
+        </button>
+        <button
+          class="px-3 py-1 text-sm text-gray-700 border border-gray-400 rounded hover:bg-gray-100"
+        >
+          Book
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

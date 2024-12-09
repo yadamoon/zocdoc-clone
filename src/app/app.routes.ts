@@ -1,3 +1,4 @@
+import { AuthGuard } from './core/guards/auth.guard';
 // src/app/app.routes.ts
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ export const routes: Routes = [
         path: 'patient', // After login
         loadChildren: () =>
             import('./patient/patient.module').then((m) => m.PatientModule),
+        canActivate: [AuthGuard],
     },
     {
         path: 'auth', // Authentication module (login, register, etc.)
@@ -22,6 +24,7 @@ export const routes: Routes = [
         path: 'admin', // Admin module
         loadChildren: () =>
             import('./admin/admin.module').then((m) => m.AdminModule),
+        canActivate: [AuthGuard],
     },
     {
         path: '**', // Wildcard route for 404

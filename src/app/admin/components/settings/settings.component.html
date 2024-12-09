@@ -8,7 +8,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- General Settings -->
     <div class="lg:col-span-2">
-      <div class="bg-white rounded-xl shadow-sm p-6">
+      <div class="bg-[#fdfdf5] rounded-xl shadow-sm p-6">
         <h2 class="text-lg font-bold text-gray-800 mb-6">General Settings</h2>
         <form
           [formGroup]="generalForm"
@@ -104,7 +104,7 @@
             <button
               type="submit"
               [disabled]="!generalForm.valid"
-              class="px-6 py-2 bg-primary-400 text-white rounded-lg hover:bg-primary-500 transition-colors disabled:opacity-50"
+              class="px-6 py-2 bg-[#fdf08a] text-gray-700 rounded-lg hover:bg-primary-500 transition-colors disabled:opacity-50"
             >
               Save Changes
             </button>
@@ -113,7 +113,7 @@
       </div>
 
       <!-- Email Settings -->
-      <div class="bg-white rounded-xl shadow-sm p-6 mt-6">
+      <div class="bg-[#fdfdf5] rounded-xl shadow-sm p-6 mt-6">
         <h2 class="text-lg font-bold text-gray-800 mb-6">Email Settings</h2>
         <form
           [formGroup]="emailForm"
@@ -199,7 +199,7 @@
             <button
               type="submit"
               [disabled]="!emailForm.valid"
-              class="px-6 py-2 bg-primary-400 text-white rounded-lg hover:bg-primary-500 transition-colors disabled:opacity-50"
+              class="px-6 py-2 bg-[#fdf08a] text-gray-700 rounded-lg hover:bg-primary-500 transition-colors disabled:opacity-50"
             >
               Save Changes
             </button>
@@ -211,7 +211,7 @@
     <!-- Side Settings -->
     <div class="space-y-6">
       <!-- Security Settings -->
-      <div class="bg-white rounded-xl shadow-sm p-6">
+      <div class="bg-[#fdfdf5] rounded-xl shadow-sm p-6">
         <h2 class="text-lg font-bold text-gray-800 mb-6">Security Settings</h2>
         <form
           [formGroup]="securityForm"
@@ -283,7 +283,7 @@
             <button
               type="submit"
               [disabled]="!securityForm.valid"
-              class="px-6 py-2 bg-primary-400 text-white rounded-lg hover:bg-primary-500 transition-colors disabled:opacity-50"
+              class="px-6 py-2 bg-[#fdf08a] text-gray-700 rounded-lg hover:bg-primary-500 transition-colors disabled:opacity-50"
             >
               Save Changes
             </button>
@@ -292,7 +292,7 @@
       </div>
 
       <!-- Notification Settings -->
-      <div class="bg-white rounded-xl shadow-sm p-6">
+      <div class="bg-[#fdfdf5] rounded-xl shadow-sm p-6">
         <h2 class="text-lg font-bold text-gray-800 mb-6">
           Notification Settings
         </h2>
@@ -357,7 +357,7 @@
           <div class="flex justify-end">
             <button
               (click)="saveNotificationSettings()"
-              class="px-6 py-2 bg-primary-400 text-white rounded-lg hover:bg-primary-500 transition-colors"
+              class="px-6 py-2 bg-[#fdf08a] text-gray-700 rounded-lg hover:bg-primary-500 transition-colors"
             >
               Save Changes
             </button>

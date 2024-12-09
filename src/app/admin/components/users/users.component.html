@@ -5,12 +5,12 @@
     <div class="flex space-x-4">
       <button
         (click)="exportUsers()"
-        class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+        class="px-4 py-2 bg-[#fdf08a] text-gray-700 rounded-lg transition-colors"
       >
         <i class="fas fa-download mr-2"></i>Export Users
       </button>
       <button
-        class="px-4 py-2 bg-primary-400 bg-gray-200 text-gray-700 rounded-lg hover:bg-primary-500 transition-colors"
+        class="px-4 py-2 bg-[#fdf08a] text-gray-700 rounded-lg transition-colors"
       >
         <i class="fas fa-plus mr-2"></i>Add New User
       </button>
@@ -18,7 +18,7 @@
   </div>
 
   <!-- Filters and Actions -->
-  <div class="bg-white rounded-xl shadow-sm p-6">
+  <div class="bg-[#fdfdf5] rounded-xl shadow-sm p-6">
     <div
       class="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0"
     >
@@ -69,7 +69,7 @@
   </div>
 
   <!-- Users Table -->
-  <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+  <div class="bg-[#fdfdf5] rounded-xl shadow-sm overflow-hidden">
     <div class="overflow-x-auto">
       <table class="w-full">
         <thead class="bg-gray-50">
@@ -168,7 +168,7 @@
                   </button>
                   <!-- Dropdown Menu -->
                   <div
-                    class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block"
+                    class="absolute right-0 mt-2 w-48 bg-[#fdfdf5] rounded-lg shadow-lg py-2 hidden group-hover:block"
                   >
                     <button
                       (click)="updateUserStatus(user, 'Active')"

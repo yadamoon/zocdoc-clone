@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -13,6 +14,8 @@ export class AdminLayoutComponent {
 
   isSidebarOpen = true;
   isUserMenuOpen = false;
+
+  constructor(private authService: AuthService) { }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
@@ -30,7 +33,9 @@ export class AdminLayoutComponent {
   }
 
   logout() {
-    // Implement logout logic
-    console.log('Logging out...');
+    // Implement logout logi
+    this.authService.logout();
+
+
   }
 }

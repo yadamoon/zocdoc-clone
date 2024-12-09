@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -13,11 +13,13 @@ interface ChartData {
   }[];
 }
 
+
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule,]
 })
 export class ReportComponent implements OnInit {
   selectedPeriod: string = 'monthly';
@@ -89,4 +91,6 @@ export class ReportComponent implements OnInit {
     // Implement export functionality
     console.log('Exporting report...');
   }
+
+
 }

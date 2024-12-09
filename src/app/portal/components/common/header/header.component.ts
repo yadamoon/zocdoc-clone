@@ -6,6 +6,8 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { SearchComponent } from "../../helps/search/search.component";
 import { BannerMainComponent } from "../../../../patient/banner-main/banner-main.component";
+import { AuthService } from '../../../../core/services/auth.service';
+// import { BannerMainComponent } from '../../../../patient/banner-main/banner-main.component';
 
 
 interface NavItem {
@@ -23,14 +25,17 @@ interface NavItem {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-  constructor(private router: Router) { }
+  isUserMenuOpen = false;
+  constructor(private router: Router, private authService: AuthService) { }
   isDropdownOpen = false;
   isBrowseOpen = false;
   isLoginOpen = false;
   selectedSpeciality: string | null = null;
   selectedTab = 'doctors';
   @Input() navItems!: NavItem[];
+
+
+
 
   // Corrected variable name
   isLoginModalOpen: boolean = false;
@@ -364,5 +369,11 @@ export class HeaderComponent {
     // Add your logout logic here
   }
 
+  logout() {
+    // Implement logout logi
+    this.authService.logout();
+
+
+  }
   // end main Page functions
 }

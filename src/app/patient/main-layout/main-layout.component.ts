@@ -1,5 +1,5 @@
 import { RouterOutlet } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WellGuideComponent } from '../well-guide/well-guide.component';
 import { CareTeamComponent } from '../care-team/care-team.component';
 import { InsurancePlansComponent } from '../insurance-plans/insurance-plans.component';
@@ -13,6 +13,16 @@ import { HeaderComponent } from "../../portal/components/common/header/header.co
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent implements OnInit {
+  // check form local storage if user is logged in
+
+  ngOnInit(): void {
+    const user = localStorage.getItem('user');
+    if (user) {
+      console.log('User is logged in');
+    } else {
+      console.log('User is not logged in');
+    }
+  }
 
 }
